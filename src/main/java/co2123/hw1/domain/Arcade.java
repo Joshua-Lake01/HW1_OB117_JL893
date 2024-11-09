@@ -36,5 +36,13 @@ public class Arcade {
     public void add_machine(Machine machine) {
         this.machines.add(machine);
     }
+    @Override
+    public String toString() {
+        return "Arcade{name='" + name + "', email='" + email + "', machines=" + machines.size() + "}";
+    }
+
+    public String getArcadeSummary() {
+        return "Arcade: " + name + " (" + email + ") has " + machines.size() + " machine(s).";
+    }
 
 }

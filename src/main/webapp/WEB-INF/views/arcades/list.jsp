@@ -11,7 +11,7 @@
 <ul>
     <!-- Iterate over the list of arcades and display each arcade's name -->
     <c:forEach var="arcade" items="${arcades}">
-        <li>${arcade.name}</li>
+        <li>${arcade.get_name()}</li>
     </c:forEach>
 </ul>
 </body>

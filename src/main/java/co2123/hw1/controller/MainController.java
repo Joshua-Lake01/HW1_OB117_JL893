@@ -18,7 +18,8 @@ public class MainController {
     public String post_request(){
         return "start";
     }
-    @RequestMapping("/arcades")
+
+    @GetMapping("/arcades")
     public String show_arcades(Model model) {
         model.addAttribute("arcades", Hw1Application.arcades);
         return "arcades/list";

@@ -43,7 +43,7 @@ public class Hw1Application {
             }
         }
         arcades.add(first_arcade);
-
+        //System.out.println(first_arcade.get_name());
         SpringApplication.run(Hw1Application.class, args);
     }
 
