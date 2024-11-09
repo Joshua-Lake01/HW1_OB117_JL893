@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 @SpringBootApplication
 public class Hw1Application {
-    private Set<String> arcade_ids = new HashSet<>();
+    private static List<Integer> deleted_ids = new ArrayList<>();
     private static int current_arcade_id_counter = 0;
-    public static List<Arcade> arcades;
+    public static List<Arcade> arcades = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -40,16 +40,31 @@ public class Hw1Application {
 
         Arcade first_arcade = new Arcade();
         first_arcade.set_name("Cool Arcade");
-        first_arcade.set_Id(current_arcade_id_counter);
-        current_arcade_id_counter++;
+        set_unique_id(first_arcade);
         first_arcade.set_email("support@CoolArcade.com");
         for(Machine machine : machines){
             first_arcade.add_machine(machine);
         }
 
-        arcades.add(new Arcade());
+        arcades.add(first_arcade);
     }
 
 
+    public void delete_arcade(Arcade arcade){
+        deleted_ids.add(arcade.get_id());
+        arcades.remove(arcade);
 
+    }
+    public static void set_unique_id(Arcade arcade){
+        if(deleted_ids.isEmpty()){
+            arcade.set_Id(current_arcade_id_counter);
+
+        }else {
+            //make id = to first in deleted ids and remove used id from list
+            arcade.set_Id(deleted_ids.get(0));
+            deleted_ids.remove(0);
+        }
+    }
 }
+
+

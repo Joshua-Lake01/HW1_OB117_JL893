@@ -35,4 +35,5 @@ public class Arcade {
     public void add_machine(Machine machine) {
         this.machines.add(machine);
     }
+
 }
