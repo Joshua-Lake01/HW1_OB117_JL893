@@ -1,12 +1,13 @@
 package co2123.hw1.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arcade {
     private int id;
     private String name;
     private String email;
-    private List<Machine> machines;
+    private List<Machine> machines = new ArrayList<>();
 
     public int get_id() {
         return this.id;

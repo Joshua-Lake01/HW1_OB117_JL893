@@ -18,35 +18,33 @@ public class Hw1Application {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(Hw1Application.class, args);
 
-
-
-        List<Machine> machines = new ArrayList<>();
-
-        for(int x=1;x<=2;x++){
-            if(x == 1){
-                machines.get(x).set_genre("Action");
-                machines.get(x).set_manufacturer("Apple");
-                machines.get(x).set_type("VR");
-                machines.get(x).set_score(9000);
-            }else if(x == 2){
-                machines.get(x).set_genre("Racing");
-                machines.get(x).set_manufacturer("Atari");
-                machines.get(x).set_type("Racer");
-                machines.get(x).set_score(4321);
-            }
-        }
 
         Arcade first_arcade = new Arcade();
         first_arcade.set_name("Cool Arcade");
         set_unique_id(first_arcade);
         first_arcade.set_email("support@CoolArcade.com");
-        for(Machine machine : machines){
-            first_arcade.add_machine(machine);
-        }
 
+        for(int x=1;x<=2;x++){
+            if(x == 1){
+                Machine CoolMachine = new Machine();
+                CoolMachine.set_genre("Action");
+                CoolMachine.set_manufacturer("Apple");
+                CoolMachine.set_type("VR");
+                CoolMachine.set_score(9000);
+                first_arcade.add_machine(CoolMachine);
+            }else if(x == 2){
+                Machine NotAsCoolMachine = new Machine();
+                NotAsCoolMachine.set_genre("Racing");
+                NotAsCoolMachine.set_manufacturer("Atari");
+                NotAsCoolMachine.set_type("Racer");
+                NotAsCoolMachine.set_score(4321);
+                first_arcade.add_machine(NotAsCoolMachine);
+            }
+        }
         arcades.add(first_arcade);
+
+        SpringApplication.run(Hw1Application.class, args);
     }
 
 
