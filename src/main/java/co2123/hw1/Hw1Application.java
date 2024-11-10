@@ -55,10 +55,11 @@ public class Hw1Application {
         arcades.remove(arcade);
 
     }
+
     public static void set_unique_id(Arcade arcade){
         if(deleted_ids.isEmpty()){
             arcade.setId(current_arcade_id_counter);
-
+            current_arcade_id_counter++;
         }else {
             //make id = to first in deleted ids and remove used id from list
             arcade.setId(deleted_ids.get(0));

@@ -30,15 +30,15 @@ public class MainController {
     }
 
     @GetMapping("/newArcade")
-    public String showNewArcadeForm(Model model) {
+    public String showNewArcade(Model model) {
         model.addAttribute("arcade", new Arcade()); // Pass an empty Arcade object to the form
         return "arcades/form";
     }
 
     @PostMapping("/addArcade")
     public String addArcade(@ModelAttribute Arcade arcade) {
-        Hw1Application.arcades.add(arcade);  // Add the new arcade to the list
-        return "redirect:/arcades";          // Redirect to the list of arcades
+        Hw1Application.arcades.add(arcade);
+        return "redirect:/arcades";
     }
 
 }
