@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +10,11 @@
 <h1>List of Arcades</h1>
 
 <ul>
-    <!-- Iterate over the list of arcades and display each arcade's name -->
     <c:forEach var="arcade" items="${arcades}">
-        <li>${arcade.get_name()}</li>
+        <li>${arcade.name}</li>
     </c:forEach>
+
+<%--    <li> ${first_arcade.name} </li>--%>
 </ul>
 </body>
 </html>

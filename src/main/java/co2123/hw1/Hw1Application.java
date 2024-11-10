@@ -15,31 +15,32 @@ public class Hw1Application {
     private static List<Integer> deleted_ids = new ArrayList<>();
     private static int current_arcade_id_counter = 0;
     public static List<Arcade> arcades = new ArrayList<>();
-
+   // public static Arcade first_arcade = new Arcade();
     public static void main(String[] args) {
 
-
-
         Arcade first_arcade = new Arcade();
-        first_arcade.set_name("Cool Arcade");
+        first_arcade.setName("Cool Arcade");
         set_unique_id(first_arcade);
-        first_arcade.set_email("support@CoolArcade.com");
+        first_arcade.setEmail("support@CoolArcade.com");
 
+
+        //Arcade second_arcade = new Arcade();
+       // second_arcade.setName("Not as Cool Arcade");
         for(int x=1;x<=2;x++){
             if(x == 1){
                 Machine CoolMachine = new Machine();
-                CoolMachine.set_genre("Action");
-                CoolMachine.set_manufacturer("Apple");
-                CoolMachine.set_type("VR");
-                CoolMachine.set_score(9000);
-                first_arcade.add_machine(CoolMachine);
+                CoolMachine.setGenre("Action");
+                CoolMachine.setManufacturer("Apple");
+                CoolMachine.setType("VR");
+                CoolMachine.setScore(9000);
+                first_arcade.addMachine(CoolMachine);
             }else if(x == 2){
                 Machine NotAsCoolMachine = new Machine();
-                NotAsCoolMachine.set_genre("Racing");
-                NotAsCoolMachine.set_manufacturer("Atari");
-                NotAsCoolMachine.set_type("Racer");
-                NotAsCoolMachine.set_score(4321);
-                first_arcade.add_machine(NotAsCoolMachine);
+                NotAsCoolMachine.setGenre("Racing");
+                NotAsCoolMachine.setManufacturer("Atari");
+                NotAsCoolMachine.setType("Racer");
+                NotAsCoolMachine.setScore(4321);
+                first_arcade.addMachine(NotAsCoolMachine);
             }
         }
         arcades.add(first_arcade);
@@ -49,17 +50,17 @@ public class Hw1Application {
 
 
     public void delete_arcade(Arcade arcade){
-        deleted_ids.add(arcade.get_id());
+        deleted_ids.add(arcade.getId());
         arcades.remove(arcade);
 
     }
     public static void set_unique_id(Arcade arcade){
         if(deleted_ids.isEmpty()){
-            arcade.set_Id(current_arcade_id_counter);
+            arcade.setId(current_arcade_id_counter);
 
         }else {
             //make id = to first in deleted ids and remove used id from list
-            arcade.set_Id(deleted_ids.get(0));
+            arcade.setId(deleted_ids.get(0));
             deleted_ids.remove(0);
         }
     }

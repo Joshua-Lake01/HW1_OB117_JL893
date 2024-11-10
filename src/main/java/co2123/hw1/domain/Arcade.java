@@ -9,31 +9,31 @@ public class Arcade {
     private String email;
     private List<Machine> machines = new ArrayList<>();
 
-    public int get_id() {
+    public int getId() {
         return this.id;
     }
-    public void set_Id(int id) {
+    public void setId(int id) {
         this.id = id;
     }
-    public String get_name() {
+    public String getName() {
         return this.name;
     }
-    public void set_name(String name) {
+    public void setName(String name) {
         this.name = name;
     }
-    public String get_email() {
+    public String getEmail() {
         return this.email;
     }
-    public void set_email(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
-    public List<Machine> get_machines() {
+    public List<Machine> getMachines() {
         return this.machines;
     }
-    public void set_machines(List<Machine> machines) {
+    public void setMachines(List<Machine> machines) {
         this.machines = machines;
     }
-    public void add_machine(Machine machine) {
+    public void addMachine(Machine machine) {
         this.machines.add(machine);
     }
     @Override
