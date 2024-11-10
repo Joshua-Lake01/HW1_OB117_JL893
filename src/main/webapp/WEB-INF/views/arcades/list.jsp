@@ -11,10 +11,13 @@
 
 <ul>
     <c:forEach var="arcade" items="${arcades}">
-        <li>${arcade.name}</li>
+        <li>
+            <strong>Name:</strong> ${arcade.name} <br/>
+            <strong>Email:</strong> ${arcade.email} <br/>
+            <a href="/machines?arcade=${arcade.id}">View Machines</a>
+        </li>
+        <br/>
     </c:forEach>
-
-<%--    <li> ${first_arcade.name} </li>--%>
 </ul>
 </body>
 </html>

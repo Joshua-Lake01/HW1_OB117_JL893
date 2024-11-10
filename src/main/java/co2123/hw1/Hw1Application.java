@@ -24,8 +24,8 @@ public class Hw1Application {
         first_arcade.setEmail("support@CoolArcade.com");
 
 
-        //Arcade second_arcade = new Arcade();
-       // second_arcade.setName("Not as Cool Arcade");
+        Arcade second_arcade = new Arcade();
+        second_arcade.setName("Not as Cool Arcade");
         for(int x=1;x<=2;x++){
             if(x == 1){
                 Machine CoolMachine = new Machine();
@@ -44,6 +44,7 @@ public class Hw1Application {
             }
         }
         arcades.add(first_arcade);
+      //  arcades.add(second_arcade);
         //System.out.println(first_arcade.get_name());
         SpringApplication.run(Hw1Application.class, args);
     }
