@@ -15,6 +15,7 @@ public class Hw1Application {
     private static List<Integer> deleted_ids = new ArrayList<>();
     private static int current_arcade_id_counter = 0;
     public static List<Arcade> arcades = new ArrayList<>();
+    public static int estimated_id;
    // public static Arcade first_arcade = new Arcade();
     public static void main(String[] args) {
 
@@ -47,11 +48,15 @@ public class Hw1Application {
       //  arcades.add(second_arcade);
         //System.out.println(first_arcade.get_name());
         SpringApplication.run(Hw1Application.class, args);
+        if(deleted_ids.isEmpty()){
+           estimated_id = current_arcade_id_counter;
+        }
     }
 
 
     public void delete_arcade(Arcade arcade){
         deleted_ids.add(arcade.getId());
+        estimated_id = deleted_ids.get(0);
         arcades.remove(arcade);
 
     }
@@ -60,10 +65,16 @@ public class Hw1Application {
         if(deleted_ids.isEmpty()){
             arcade.setId(current_arcade_id_counter);
             current_arcade_id_counter++;
+            estimated_id = current_arcade_id_counter;
         }else {
             //make id = to first in deleted ids and remove used id from list
             arcade.setId(deleted_ids.get(0));
             deleted_ids.remove(0);
+            if(deleted_ids.isEmpty()){
+                estimated_id = current_arcade_id_counter;
+            }else{
+                estimated_id = deleted_ids.get(0);
+            }
         }
     }
 }

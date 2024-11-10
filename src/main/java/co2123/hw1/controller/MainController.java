@@ -13,6 +13,12 @@ import co2123.hw1.domain.Arcade;
 @Controller
 
 public class MainController {
+    private final Hw1Application hw1Application;
+
+    public MainController(Hw1Application hw1Application) {
+        this.hw1Application = hw1Application;
+    }
+
     @GetMapping("/")
     public String show_start() {
         return "start";
@@ -31,14 +37,17 @@ public class MainController {
 
     @GetMapping("/newArcade")
     public String showNewArcade(Model model) {
+        model.addAttribute("estimated_id", Hw1Application.estimated_id);
         model.addAttribute("arcade", new Arcade()); // Pass an empty Arcade object to the form
         return "arcades/form";
     }
 
     @PostMapping("/addArcade")
     public String addArcade(@ModelAttribute Arcade arcade) {
-        Hw1Application.arcades.add(arcade);
+        Arcade new_arcade = arcade;
+        Hw1Application.set_unique_id(new_arcade);
+        Hw1Application.arcades.add(new_arcade);
+
         return "redirect:/arcades";
     }
-
 }
