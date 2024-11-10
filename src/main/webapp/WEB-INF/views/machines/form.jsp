@@ -10,28 +10,32 @@
 
 <h1>Create a New Arcade</h1>
 
-<form:form modelAttribute="arcade" action="/addArcade" method="post">
+<form:form modelAttribute="machine" action="/addMachine" method="post">
 
     <div>
-        <label for="id">Estimated ID:</label>
-        <form:input path="id" id="id" value="${estimated_id}" readonly="true"/>
+        <label for="manufacturer">Manufacturer ID:</label>
+        <form:input path="manufacturer" id="manufacturer"/>
     </div>
     <br/>
 
     <div>
-        <label for="name">Name:</label>
-        <form:input path="name" id="name" />
+        <label for="type">Type:</label>
+        <form:input path="type" id="type" />
     </div>
     <br/>
 
     <div>
-        <label for="email">Email:</label>
-        <form:input path="email" id="email" />
+        <label for="genre">Genre:</label>
+        <form:input path="genre" id="genre" />
+    </div>
+    <div>
+        <label for="score">Score:</label>
+        <form:input path="score" id="score" />
     </div>
     <br/>
 
     <div>
-        <button type="submit">Add Arcade</button>
+        <a href="/addArcade?arcade=${arcade_id}"><button type="submit">Add Arcade</button></a>
     </div>
 
 </form:form>
