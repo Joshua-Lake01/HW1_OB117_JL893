@@ -17,22 +17,34 @@ public class MachineController {
     @GetMapping("/machines")
     public String machine(Model model, @RequestParam int arcade) {
         for(Arcade arcade1: Hw1Application.arcades){
-            model.addAttribute("arcade_name", arcade1.getName());
-            model.addAttribute("arcade_id", arcade1.getId());
             if(arcade1.getId() == arcade){
+                model.addAttribute("arcade_name", arcade1.getName());
+                model.addAttribute("arcade_id", arcade1.getId());
                 model.addAttribute("machines", arcade1.getMachines());
             }
         }
         return "machines/list";
     }
     @GetMapping("/newMachine")
-    public String newMachine(Model model) {
+    public String newMachine(Model model,@RequestParam int arcade) {
+        for(Arcade arcade1: Hw1Application.arcades){
+            if(arcade1.getId() == arcade){
+                model.addAttribute("arcade_id", arcade1.getId());
+            }
+        }
+        model.addAttribute("machine", new Machine());
         //to add arcade id to machine url
+
         return "machines/form";
     }
 
     @PostMapping("/addMachine")
-    public String addMachine(@ModelAttribute("machine") Machine machine) {
-        return "machines/list";
+    public String addMachine(@ModelAttribute Machine machine,@RequestParam int arcade) {
+        for(Arcade arcade1: Hw1Application.arcades) {
+            if (arcade1.getId() == arcade) {
+                arcade1.addMachine(machine);
+            }
+        }
+        return "redirect:/arcades";
     }
 }

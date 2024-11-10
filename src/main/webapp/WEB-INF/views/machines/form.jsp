@@ -4,16 +4,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>New Arcade</title>
+    <title>New Machine</title>
 </head>
 <body>
 
-<h1>Create a New Arcade</h1>
+<h1>Create a New Machine</h1>
 
-<form:form modelAttribute="machine" action="/addMachine" method="post">
+<form:form modelAttribute="machine" action="/addMachine?arcade=${arcade_id}" method="post">
 
     <div>
-        <label for="manufacturer">Manufacturer ID:</label>
+        <label for="manufacturer">Manufacturer:</label>
         <form:input path="manufacturer" id="manufacturer"/>
     </div>
     <br/>
@@ -35,7 +35,7 @@
     <br/>
 
     <div>
-        <a href="/addArcade?arcade=${arcade_id}"><button type="submit">Add Arcade</button></a>
+       <button type="submit">Add Machine</button>
     </div>
 
 </form:form>
