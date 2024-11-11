@@ -18,6 +18,7 @@
         </li>
         <br/>
     </c:forEach>
+    <a href="/newArcade">Create New Arcade</a>
 </ul>
 </body>
 </html>

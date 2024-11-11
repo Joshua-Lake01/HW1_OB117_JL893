@@ -58,7 +58,6 @@ public class Hw1Application {
         deleted_ids.add(arcade.getId());
         estimated_id = deleted_ids.get(0);
         arcades.remove(arcade);
-
     }
 
     public static void set_unique_id(Arcade arcade){
