@@ -14,7 +14,7 @@
 
     <div>
         <label for="id">Estimated ID:</label>
-        <form:input path="id" id="id" value="${estimated_id}" readonly="false"/>
+        <form:input path="id" id="id" value="${estimated_id}" readonly="false" placeholder="${estimated_id}"/>
     </div>
     <br/>
 
