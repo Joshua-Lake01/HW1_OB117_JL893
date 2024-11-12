@@ -32,7 +32,7 @@ public class MachineValidator implements Validator {
            errors.rejectValue("genre", "", "Enter A Valid Genre");
         }
 
-        if(!(machine.getScore() > 5000 && machine.getScore() < 1)){
+        if(machine.getScore() > 5000 || machine.getScore() < 1){
            errors.rejectValue("score", "", "Score Needs To Be Between 1 and 5000");
         }
 

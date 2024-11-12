@@ -33,7 +33,7 @@ public class Hw1Application {
                 CoolMachine.setGenre("Action");
                 CoolMachine.setManufacturer("Apple");
                 CoolMachine.setType("VR");
-                CoolMachine.setScore(9000);
+                CoolMachine.setScore(1999);
                 first_arcade.addMachine(CoolMachine);
             }else if(x == 2){
                 Machine NotAsCoolMachine = new Machine();

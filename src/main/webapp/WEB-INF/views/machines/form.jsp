@@ -21,7 +21,7 @@
 
     <div>
         <label for="type">Type:</label>
-        <form:input path="type" id="type" />
+        <form:input path="type" id="type"/>
         <form:errors path="type"/>
     </div>
     <br/>
