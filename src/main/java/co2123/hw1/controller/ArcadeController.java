@@ -36,7 +36,7 @@ public class ArcadeController {
             return "/arcades/form";
         }
         Arcade new_arcade = arcade;
-        Hw1Application.set_unique_id(new_arcade);
+        //Hw1Application.set_unique_id(new_arcade);
         Hw1Application.arcades.add(new_arcade);
         return "redirect:/arcades";
     }

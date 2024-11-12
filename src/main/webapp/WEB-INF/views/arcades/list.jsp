@@ -11,14 +11,15 @@
 
 <ul>
     <c:forEach var="arcade" items="${arcades}">
-        <li>
+            <strong>ID:</strong> ${arcade.id} <br/>
             <strong>Name:</strong> ${arcade.name} <br/>
             <strong>Email:</strong> ${arcade.email} <br/>
             <a href="/machines?arcade=${arcade.id}">View Machines</a>
         </li>
         <br/>
+        <br/>
     </c:forEach>
-    <a href="/newArcade">Create New Arcade</a>
+    <br/><br/><a href="/newArcade">Create New Arcade</a>
 </ul>
 </body>
 </html>

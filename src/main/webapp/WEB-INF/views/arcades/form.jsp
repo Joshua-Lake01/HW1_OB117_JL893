@@ -13,8 +13,8 @@
 <form:form modelAttribute="arcade" action="/addArcade" method="post">
 
     <div>
-        <label for="id">Estimated ID:</label>
-        <form:input path="id" id="id" value="${estimated_id}" readonly="false" placeholder="${estimated_id}"/>
+        <label for="id">ID:</label>
+        <form:input path="id" id="id" value=""/>
         <form:errors path="id"/>
     </div>
     <br/>
