@@ -14,7 +14,11 @@ public class ArcadeValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "id", "", "Arcade Needs An ID");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "", "Arcade Needs A Name");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "", "Arcade Needs A Email");
-
+        Arcade arcade = (Arcade) target;
+        String emailRegex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
+        if(!arcade.getEmail().matches(emailRegex)) {
+            errors.rejectValue("email", "", "Please enter a valid email address");
+        }
 
     }
 }
