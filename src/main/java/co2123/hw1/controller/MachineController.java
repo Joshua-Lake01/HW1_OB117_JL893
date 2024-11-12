@@ -3,14 +3,14 @@ package co2123.hw1.controller;
 import co2123.hw1.Hw1Application;
 import co2123.hw1.domain.Arcade;
 import co2123.hw1.domain.Machine;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MachineController {
@@ -39,12 +39,20 @@ public class MachineController {
     }
 
     @PostMapping("/addMachine")
-    public String addMachine(@ModelAttribute Machine machine,@RequestParam int arcade) {
+    public String addMachine(@Valid @ModelAttribute Machine machine, BindingResult result, @RequestParam int arcade) {
+        if(result.hasErrors()) {
+            return "machines/form";
+        }
         for(Arcade arcade1: Hw1Application.arcades) {
+
+
             if (arcade1.getId() == arcade) {
                 arcade1.addMachine(machine);
             }
         }
         return "redirect:/arcades";
     }
+
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) { binder.addValidators(new ArcadeValidator());}
 }

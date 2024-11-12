@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 public class ArcadeController {
 
     @GetMapping("/arcades")
-    public String show_arcades(Model model) {
+    public String show_arcades(Model model) {   
         model.addAttribute("arcades", Hw1Application.arcades);
         System.out.printf(Hw1Application.arcades.get(0).getName());
         return "arcades/list";
