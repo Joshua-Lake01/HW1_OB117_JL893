@@ -18,7 +18,6 @@ public class ArcadeValidator implements Validator {
 
         Arcade arcade = (Arcade) target;
 
-
         for(Arcade arcade1 : Hw1Application.arcades){
             if(arcade1.getId() == arcade.getId()){
                 errors.rejectValue("id", "", "Arcade ID Already Exists");
