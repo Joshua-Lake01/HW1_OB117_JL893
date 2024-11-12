@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MachineValidator implements Validator {
     @Override
-    public boolean supports(Class<?> clazz) {return Arcade.class.equals(clazz);}
+    public boolean supports(Class<?> clazz) {return Machine.class.equals(clazz);}
 
 
     @Override

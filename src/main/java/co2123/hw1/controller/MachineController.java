@@ -39,8 +39,9 @@ public class MachineController {
     }
 
     @PostMapping("/addMachine")
-    public String addMachine(@Valid @ModelAttribute Machine machine, BindingResult result, @RequestParam int arcade) {
+    public String addMachine(@Valid @ModelAttribute Machine machine, BindingResult result, @RequestParam int arcade, Model model) {
         if(result.hasErrors()) {
+            model.addAttribute("arcade_id", arcade);
             return "machines/form";
         }
         for(Arcade arcade1: Hw1Application.arcades) {
@@ -54,5 +55,5 @@ public class MachineController {
     }
 
     @InitBinder
-    protected void initBinder(WebDataBinder binder) { binder.addValidators(new ArcadeValidator());}
+    protected void initBinder(WebDataBinder binder) { binder.addValidators(new MachineValidator());}
 }
